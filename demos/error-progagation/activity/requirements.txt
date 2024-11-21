@@ -1,0 +1,4 @@
+protobuf==5.27.3
+temporalio==1.6.0
+types-protobuf==5.27.0.20240626
+typing_extensions==4.12.2
