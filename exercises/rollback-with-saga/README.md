@@ -44,7 +44,7 @@ In this part of the exercise, you will call the `Compensate` function that you d
 2. In the `catch` block of the `PizzaWorkflow`, call `await CompensateAsync()`. Now if `ValidateCreditCard` fails, first we roll back on `SendBill` by calling `RefundCustomer`. Next, we will roll back on `UpdateInventory` by calling `revertInventory`.
 3. Save the file.
 
-## Part C: Test the Rollback of Your Activities
+## Part E: Test the Rollback of Your Activities
 
 To run the Workflow:
 
