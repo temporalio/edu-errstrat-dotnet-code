@@ -27,8 +27,8 @@ Workflow result:
   Order Number: {result.OrderNumber}
   Status: {result.Status}
   Confirmation Number: {result.ConfirmationNumber}
-  Billing Timestamp: {DateTimeOffset.FromUnixTimeSeconds(result.BillingTimestamp).UtcDateTime}
-  Amount: ${result.Amount / 100.0:F2}
+  Billing Timestamp: {result.BillingTimestamp}
+  Amount: {result.Amount}
 """);
 
 PizzaOrder CreatePizzaOrder()
