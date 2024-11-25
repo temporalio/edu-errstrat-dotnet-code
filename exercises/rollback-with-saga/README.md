@@ -14,8 +14,8 @@ This Exercise uses the same structure as in the previous Exercises — meaning  
 Three new Activities have been created to demonstrate rollback actions.
 
 * `UpdateInventory` reduces the stock from the pizza inventory once the pizza order comes through.
-* `revertInventory` has also been added as a compensating action for `updateInventory`. It add the ingredients back into the pizza inventory.
-* `refundCustomer` has been added as a compensating action for `sendBill`.
+* `RevertInventory` has also been added as a compensating action for `UpdateInventory`. It add the ingredients back into the pizza inventory.
+* `RefundCustomer` has been added as a compensating action for `sendBill`.
 
 1. Review these new Activities in `Activities.cs` in the `Workflow` directory. None of them make actual inventory or billing changes, because the intent of this Activity is to show Temporal features, but you should be able to see where you could add functionality here.
 2. Close the files.
@@ -41,7 +41,7 @@ In this part of the exercise, you will create a function which will loop through
 In this part of the exercise, you will call the `Compensate` function that you defined in Part C.
 
 1. In the `PizzaWorkflow.cs` file, notice you have a `try/catch` block. You call your Activities in the `try` block. In the `catch` block, if an error occurs, we want to roll back on the Activities and call the compensating actions.
-2. In the `catch` block of the `PizzaWorkflow`, call `await CompensateAsync()`. Now if `ValidateCreditCard` fails, first we roll back on `SendBill` by calling `RefundCustomer`. Next, we will roll back on `UpdateInventory` by calling `revertInventory`.
+2. In the `catch` block of the `PizzaWorkflow`, call `await CompensateAsync()`. Now if `ValidateCreditCard` fails, first we roll back on `SendBill` by calling `RefundCustomer`. Next, we will roll back on `UpdateInventory` by calling `RevertInventory`.
 3. Save the file.
 
 ## Part E: Test the Rollback of Your Activities
