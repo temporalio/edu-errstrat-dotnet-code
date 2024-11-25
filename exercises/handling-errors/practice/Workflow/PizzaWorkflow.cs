@@ -51,7 +51,7 @@ public class PizzaWorkflow
                 logger.LogError("Unable to get distance: {Message}", err.Message);
                 throw new ApplicationFailureException(
                     message: "Problem with delivery",
-                    details: new[] { err });
+                    details: new[] { err.Message });
             }
         }
 
@@ -76,7 +76,7 @@ public class PizzaWorkflow
             logger.LogError("Unable to bill customer: {Message}", err.Message);
             throw new ApplicationFailureException(
                 message: "Unable to bill customer",
-                details: new[] { err });
+                details: new[] { err.Message });
         }
     }
 }
