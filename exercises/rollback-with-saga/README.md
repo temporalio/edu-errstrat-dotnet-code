@@ -15,7 +15,7 @@ Three new Activities have been created to demonstrate rollback actions.
 
 * `UpdateInventory` reduces the stock from the pizza inventory once the pizza order comes through.
 * `RevertInventory` has also been added as a compensating action for `UpdateInventory`. It add the ingredients back into the pizza inventory.
-* `RefundCustomer` has been added as a compensating action for `sendBill`.
+* `RefundCustomer` has been added as a compensating action for `SendBill`.
 
 1. Review these new Activities in `Activities.cs` in the `Workflow` directory. None of them make actual inventory or billing changes, because the intent of this Activity is to show Temporal features, but you should be able to see where you could add functionality here.
 2. Close the files.
