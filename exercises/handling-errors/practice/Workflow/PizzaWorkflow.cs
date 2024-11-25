@@ -14,7 +14,7 @@ public class PizzaWorkflow
         var options = new ActivityOptions
         {
             StartToCloseTimeout = TimeSpan.FromSeconds(5),
-            RetryPolicy = new Temporalio.Common.RetryPolicy { MaximumInterval = TimeSpan.FromSeconds(10) },
+            RetryPolicy = RetryPolicy = new() { MaximumInterval = TimeSpan.FromSeconds(10) },
         };
 
         try
