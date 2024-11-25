@@ -88,7 +88,7 @@ public class PizzaWorkflow
             logger.LogError("Unable to bill customer: {Message}", err.Message);
             throw new ApplicationFailureException(
                 message: "Unable to bill customer",
-                details: new[] { err.Message }));
+                details: new[] { err.Message });
         }
     }
 }

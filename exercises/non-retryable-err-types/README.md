@@ -11,20 +11,20 @@ Make your changes to the code in the `practice` subdirectory (look for `TODO` co
 
 ## Part A: Convert Non-Retryable Errors to Be Handled By a Retry Policy
 
-In this part of the exercise, we will take the `ApplicationFailureException` that you defined in the `ValidatedCreditCard` method in the first exercise (Handling Errors) to not retry an invalid credit card error. After consideration, you've determined that while you may want to immediately fail your Activity Execution on any failure, others who call your Activity may not.
+In this part of the exercise, we will use the `ApplicationFailureException` that you defined in the `ValidatedCreditCard` method in the first exercise (Handling Errors) to not retry an invalid credit card error. After consideration, you've determined that while you may want to immediately fail your Activity Execution on any failure, others who call your Activity may not.
 
 1. Edit `Activities.cs` in the `Workflow` directory.
-2. In the first exercise, in the `ValidateCreditCard` Activity, we threw an `ApplicationFailureException` if the credit card had an invalid number. We want to make this an error type that we don't retry on. In the constructors supplied into `ApplicationFailureException`, add an `errorType` key and set it to a string: `InvalidCreditCardErr`. Remove the `nonRetryable` key.
+2. In the first exercise, in the `ValidateCreditCard` Activity, we threw an `ApplicationFailureException` if the credit card had an invalid number. In the constructors supplied into `ApplicationFailureException`, add an `errorType` key and set it to a string: `InvalidCreditCardErr`. Remove the `nonRetryable` key.
 3. Save your file.
 4. We have already supplied an invalid credit card number for you in Client file (`/Client/Program.cs`). Verify that your error is now being retried by attempting to execute the Workflow Execution.
     1. In one terminal, start the Worker by running `dotnet run --project Worker`.
     2. In another terminal window, start the Workflow Execution by running `dotnet run --project Client`.
-    3. Go to the WebUI and view the status of the Workflow. It should be Running. In the terminal window that the Worker is running, you can see that it is currently retrying the exception, verifying that the exception is no longer non-retryable.
+    3. Go to the Web UI and view the status of the Workflow. It should be Running. In the terminal window that the Worker is running, you can see that it is currently retrying the exception, verifying that the exception is no longer non-retryable.
     4. Stop this Workflow in the WebUI, as it will never successfully complete with Ctrl-C.
 
 ## Part B: Configure Retry Policies to set Non-Retryable Error Types
 
-Now that the error from the `ValidateCreditCard` Activity is no longer set to non-retryable, others who call your Activity may decide how to handle the failure. However, you have decided that you do not want the Activity to retry upon failure. In this part of the exercise, you will configure a Retry Policy to disallow this using non-retryable error types.
+Now that the error from the `ValidateCreditCard` Activity is no longer set to non-retryable, others who call your Activity may decide how to handle the failure. However, you have decided that at least in this Workflow, you do not want the Activity to retry upon failure. In this part of the exercise, you will configure a Retry Policy to disallow this using non-retryable error types.
 
 Recall that a Retry Policy has the following attributes:
 
@@ -78,8 +78,7 @@ Next, let's run the Workflow. Let's go back to change your credit card to a vali
 3. In another terminal, run the Worker by running `dotnet run --project Worker`.
 4. In another terminal, start the Workflow by running `dotnet run --project Client`.
 
-Before your Workflow is completed, if you click on the Workflow ID in your Web UI, click 'Pending Activities'. In this section you should see Heartbeat Details and JSON representing the payload. The Heartbeat message is not visible in the Web UI for an Activity Execution that has closed.
-    i. Remember, the simulation will finish at a random interval. You may need to run this a few times to see the results.
+Before your Workflow is completed, if you navigate to the landing page for that Workflow ID in your Web UI, you can then click through to a tab called 'Pending Activities'. In this section you should see Heartbeat Details and JSON representing the payload. The Heartbeat message is not visible in the Web UI for an Activity Execution that has closed. Remember, the simulation will finish at a random interval. You may need to run this a few times to see the results.
 
 You have now seen how Heartbeats are implemented and appear when an Activity is running.
 
