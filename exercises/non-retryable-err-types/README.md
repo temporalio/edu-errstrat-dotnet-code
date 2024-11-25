@@ -66,7 +66,7 @@ In this part of the exercise, we will add heartbeating to our `PollDeliveryDrive
 In the previous part of the exercise, you added a Heartbeat to an Activity. However, you didn't set how long the Heartbeat should be inactive for before it is considered a failed Heartbeat.
 
 1. Edit `PizzaWorkflow.cs`.
-2. Below the `startToCloseTimeout`, add a `HeartbeatTimeout` and set it to 30 seconds. This sets the maximum time between Activity Heartbeats. If an Activity times out (e.g., due to a missed Heartbeat), the next attempt can use this payload to continue from where it left off.
+2. Below the `StartToCloseTimeout`, add a `HeartbeatTimeout` and set it to 30 seconds. This sets the maximum time between Activity Heartbeats. If an Activity times out (e.g., due to a missed Heartbeat), the next attempt can use this payload to continue from where it left off.
 3. Save your file.
 
 ## Part E: Run the Workflow
