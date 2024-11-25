@@ -9,7 +9,7 @@ Make your changes to the code in the `practice` subdirectory (look for `TODO` co
 
 ## Part A: Review your rollback Activities
 
-This Exercise uses the same structure as in the previous Exercises — meaning  that it will fail at the very end on the `ValidateCreditCard` if you provide it with a bad credit card number.
+This Exercise uses the same structure as in the previous Exercises — meaning  that it will fail at the very end on the `ValidateCreditCard` Activity if you provide it with a bad credit card number.
 
 Three new Activities have been created to demonstrate rollback actions.
 
@@ -40,7 +40,7 @@ In this part of the exercise, you will create a function which will loop through
 
 In this part of the exercise, you will call the `Compensate` function that you defined in Part C.
 
-1. In the `PizzaWorkflow.cs` file, notice you have a `try/catch` block. You call your Activities in the `try` block. In the `catch` block, if an error occurs, we want to roll back on the Activities and call the compensating actions.
+1. In the `PizzaWorkflow.cs` file, notice you have a `try/catch` block. You call your Activities in the `try` block. In the `catch` block, if an error occurs, we want to roll back all of the Activities that have so far executed by calling the compensating actions.
 2. In the `catch` block of the `PizzaWorkflow`, call `await CompensateAsync()`. Now if `ValidateCreditCard` fails, first we roll back on `SendBill` by calling `RefundCustomer`. Next, we will roll back on `UpdateInventory` by calling `RevertInventory`.
 3. Save the file.
 
