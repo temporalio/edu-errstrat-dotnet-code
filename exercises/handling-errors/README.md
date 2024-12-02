@@ -55,6 +55,6 @@ In the `Program.cs` file in your Client directory, a `CreditCardNumber` paramete
 1. Open `Program.cs` file in your Client directory and modify the `CreditCardNumber` value in the `CreatePizzaOrder` function to be `1234`. Save this file.
 2. In one terminal, restart the Worker by using `Ctrl-C` then re-running `dotnet run --project Worker`.
 3. In another terminal, start the Workflow by running `dotnet run --project Client`.
-4. You should see in the Web UI a WorkflowExecutionFailed Event with the message: "Invalid credit card number error".
+4. You should see in the Web UI a `WorkflowExecutionFailed` Event with the message: "Invalid credit card number error".
 
 ### This is the end of the exercise.
