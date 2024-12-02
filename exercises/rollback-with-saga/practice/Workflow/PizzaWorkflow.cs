@@ -55,10 +55,8 @@ public class PizzaWorkflow
             var confirmation = await Workflow.ExecuteActivityAsync(
                 (Activities act) => act.SendBillAsync(bill),
                 options);
-            
-            // TODO PART B: Add a compensating action for the `SendBill` Activity. 
+            // TODO PART B: Add a compensating action for the `SendBill` Activity.
             // Pass the bill as the input.
-
             await Workflow.ExecuteActivityAsync(
                 (Activities act) => act.ValidateCreditCardAsync(order.Customer.CreditCardNumber),
                 options);

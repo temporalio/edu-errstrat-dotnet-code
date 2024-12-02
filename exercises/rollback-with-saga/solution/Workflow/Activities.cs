@@ -47,7 +47,7 @@ public class Activities
         var logger = ActivityExecutionContext.Current.Logger;
         // Here you would call your inventory management system to reduce the stock of your pizza inventory
         logger.LogInformation("Updating inventory for {Count} items", items.Count);
-        return Task.CompletedTask;
+        return Task.FromResult("Updated inventory");
     }
 
     [Activity]
@@ -56,7 +56,7 @@ public class Activities
         var logger = ActivityExecutionContext.Current.Logger;
         // Here you would call your inventory management system to add the ingredients back into the pizza inventory.
         logger.LogInformation("Reverting inventory for {Count} items", items.Count);
-        return Task.CompletedTask;
+        return Task.FromResult("Reverted inventory");
     }
 
     [Activity]
@@ -69,7 +69,7 @@ public class Activities
             bill.Amount,
             bill.CustomerId,
             bill.OrderNumber);
-        return Task.CompletedTask;
+        return Task.FromResult("Refunded {Amount} to customer {CustomerId} for order {OrderNumber}");
     }
 
     [Activity]
