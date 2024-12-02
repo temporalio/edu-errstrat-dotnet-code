@@ -20,7 +20,7 @@ In this part of the exercise, we will use the `ApplicationFailureException` that
     1. In one terminal, start the Worker by running `dotnet run --project Worker`.
     2. In another terminal window, start the Workflow Execution by running `dotnet run --project Client`.
     3. Go to the Web UI and view the status of the Workflow. It should be Running. In the terminal window that the Worker is running, you can see that it is currently retrying the exception, verifying that the exception is no longer non-retryable.
-    4. Stop this Workflow in the WebUI, as it will never successfully complete with Ctrl-C.
+    4. Stop this Workflow with `Ctrl-C`, as it will never successfully complete.
 
 ## Part B: Configure Retry Policies to set Non-Retryable Error Types
 
@@ -56,7 +56,7 @@ In this part of the exercise, we will add heartbeating to our `PollDeliveryDrive
     ii. If that service returns a status code of 500s or 403, we don't want to retry polling this service. Within this Activity, within the `if` statement that checks the status code, throw a new `ApplicationFailureException` with a message that lets the user know that there is an invalid server error. 
     iii. Set this Application Failure's `nonRetryable` key to `true`.
 2. Now, let's add heartbeating. Let's first observe the provided code.
-    i. In the `PollExternalDeliveryDriver` Activity, notice that we have a `startingPoint` variable. This variable is set to the resuming point that the heartbeat last left off of, or 1, if the heartbeating has not began.
+    i. In the `PollDeliveryDriver` Activity, notice that we have a `startingPoint` variable. This variable is set to the resuming point that the heartbeat last left off of, or 1, if the heartbeating has not began.
     ii. Note that there is a loop in the `try` portion of the `try/catch` statement. When initiating the loop, it should initiate at `var progress = startingPoint` and the progress should increment by one after each iteration of the loop. The loop should iterate up to ten times, one by one. This loop will simulate multiple attempts to poll an external service (e.g., DoorDash, UberEats) to find an available delivery driver.
 3. Call `Heartbeat()` within each iteration of the loop like so: `ctx.Heartbeat()`. The `Heartbeat` function should take in `progress`.
 4. Save your file. 

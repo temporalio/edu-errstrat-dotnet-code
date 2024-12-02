@@ -39,7 +39,6 @@ public class Activities
                 var content = await response.Content.ReadFromJsonAsync<DeliveryResponse>(cancellationToken: ctx.CancellationToken);
                 ctx.Logger.LogInformation("External delivery driver assigned from: {Service}", content?.Service);
                 // TODO Part C: Call `ctx.Heartbeat()` taking in `progress`.
-
                 if (response.IsSuccessStatusCode)
                 {
                     break;
