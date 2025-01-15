@@ -1,8 +1,9 @@
+namespace TemporalioSagaPattern;
+
 using Microsoft.Extensions.Logging;
 using Temporalio.Exceptions;
+using Temporalio.SagaPattern.Workflow.Models;
 using Temporalio.Workflows;
-
-namespace TemporalioSagaPattern;
 
 [Workflow]
 public class PizzaWorkflow
@@ -37,13 +38,11 @@ public class PizzaWorkflow
             await Workflow.DelayAsync(TimeSpan.FromSeconds(3));
 
             var totalPrice = order.Items.Sum(pizza => pizza.Price);
-            var bill = new Bill
-            {
-                CustomerId = order.Customer.CustomerId,
-                OrderNumber = order.OrderNumber,
-                Amount = totalPrice,
-                Description = "Pizza",
-            };
+            var bill = new Bill(
+                CustomerId: order.Customer.CustomerId,
+                OrderNumber: order.OrderNumber,
+                Description: "Pizza",
+                Amount: totalPrice);
 
             await Workflow.ExecuteActivityAsync(
                 (Activities act) => act.UpdateInventoryAsync(order.Items),

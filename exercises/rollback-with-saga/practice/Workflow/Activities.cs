@@ -1,8 +1,9 @@
+namespace TemporalioSagaPattern;
+
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 using Temporalio.Exceptions;
-
-namespace TemporalioSagaPattern;
+using Temporalio.SagaPattern.Workflow.Models;
 
 public class Activities
 {
@@ -12,16 +13,17 @@ public class Activities
         var logger = ActivityExecutionContext.Current.Logger;
         logger.LogInformation("GetDistance invoked; determining distance to customer address");
 
+        // this is a simulation, which calculates a fake (but consistent)
+        // distance for a customer address based on its length. The value
+        // will therefore be different when called with different addresses,
+        // but will be the same across all invocations with the same address.
         var kilometers = address.Line1.Length + address.Line2.Length - 10;
         if (kilometers < 1)
         {
             kilometers = 5;
         }
 
-        var distance = new Distance
-        {
-            Kilometers = kilometers,
-        };
+        var distance = new Distance(kilometers);
 
         logger.LogInformation("GetDistance complete. Distance: {Distance}", distance.Kilometers);
         return Task.FromResult(distance);
@@ -88,17 +90,15 @@ public class Activities
 
         if (chargeAmount < 0)
         {
-            throw new ArgumentException($"invalid charge amount: {chargeAmount} (must be above zero)");
+            throw new ArgumentException($"Invalid charge amount: {chargeAmount} (must be above zero)");
         }
 
-        var confirmation = new OrderConfirmation
-        {
-            OrderNumber = bill.OrderNumber,
-            ConfirmationNumber = "AB9923",
-            Status = "SUCCESS",
-            BillingTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
-            Amount = chargeAmount,
-        };
+        var confirmation = new OrderConfirmation(
+             OrderNumber: bill.OrderNumber,
+             Status: "SUCCESS",
+             ConfirmationNumber: "AB9923",
+             BillingTimestamp: DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+             Amount: chargeAmount);
 
         logger.LogInformation("SendBill complete. ConfirmationNumber: {Confirmation}", confirmation.ConfirmationNumber);
 

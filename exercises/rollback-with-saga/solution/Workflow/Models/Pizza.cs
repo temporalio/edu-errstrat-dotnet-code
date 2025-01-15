@@ -1,7 +1,4 @@
-namespace TemporalioSagaPattern;
-public class Pizza
-{
-    required public string Description { get; set; }
-
-    required public int Price { get; set; }
-}
+namespace Temporalio.SagaPattern.Workflow.Models;
+public record Pizza(
+    string Description,
+    int Price);

@@ -1,14 +1,8 @@
-namespace TemporalioSagaPattern;
+namespace Temporalio.SagaPattern.Workflow.Models;
 
-public class Address
-{
-    required public string Line1 { get; set; }
-
-    public string Line2 { get; set; } = string.Empty;
-
-    required public string City { get; set; }
-
-    required public string State { get; set; }
-
-    required public string PostalCode { get; set; }
-}
+public record Address(
+    string Line1,
+    string City,
+    string State,
+    string PostalCode,
+    string Line2 = "");
