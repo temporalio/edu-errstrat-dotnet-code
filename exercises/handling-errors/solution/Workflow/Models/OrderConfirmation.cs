@@ -1,14 +1,8 @@
-namespace TemporalioHandlingErr;
+namespace Temporalio.HandlingErrors.Workflow.Models;
 
-public class OrderConfirmation
-{
-    required public string OrderNumber { get; set; }
-
-    required public string Status { get; set; }
-
-    required public string ConfirmationNumber { get; set; }
-
-    required public long BillingTimestamp { get; set; }
-
-    required public int Amount { get; set; }
-}
+public record OrderConfirmation(
+    string OrderNumber,
+    string Status,
+    string ConfirmationNumber,
+    long BillingTimestamp,
+    int Amount);

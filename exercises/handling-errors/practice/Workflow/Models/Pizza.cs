@@ -1,8 +1,5 @@
-namespace TemporalioHandlingErr;
+namespace Temporalio.HandlingErrors.Workflow.Models;
 
-public class Pizza
-{
-    required public string Description { get; set; }
-
-    required public int Price { get; set; }
-}
+public record Pizza(
+    string Description,
+    int Price);

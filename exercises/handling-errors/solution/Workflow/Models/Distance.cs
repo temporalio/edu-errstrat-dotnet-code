@@ -1,6 +1,3 @@
-namespace TemporalioHandlingErr;
+namespace Temporalio.HandlingErrors.Workflow.Models;
 
-public class Distance
-{
-    required public int Kilometers { get; set; }
-}
+public record Distance(int Kilometers = 0);

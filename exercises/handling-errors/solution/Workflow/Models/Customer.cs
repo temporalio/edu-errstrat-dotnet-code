@@ -1,14 +1,8 @@
-namespace TemporalioHandlingErr;
+namespace Temporalio.HandlingErrors.Workflow.Models;
 
-public class Customer
-{
-    required public int CustomerId { get; set; }
-
-    required public string Name { get; set; }
-
-    required public string Email { get; set; }
-
-    required public string Phone { get; set; }
-
-    public string CreditCardNumber { get; set; } = string.Empty;
-}
+public record Customer(
+    int CustomerId,
+    string Name,
+    string Phone,
+    string Email = "",
+    string CreditCardNumber);
