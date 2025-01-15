@@ -29,29 +29,29 @@ jobs:
         with:
           dotnet-version: 8
 
-      - name: Build
+      - name: Build handling-errors
         run: dotnet build
         working-directory: exercises/handling-errors/solution/Worker
 
-      - name: Check format
+      - name: Check format handling-errors
         if: ${{ matrix.checkTarget }}
         run: dotnet format --verify-no-changes
         working-directory: exercises/handling-errors/solution/Worker
 
-      - name: Build
+      - name: Build non-retryable-err-types
         run: dotnet build
         working-directory: exercises/non-retryable-err-types/solution/Worker
 
-      - name: Check format
+      - name: Check format non-retryable-err-types
         if: ${{ matrix.checkTarget }}
         run: dotnet format --verify-no-changes
         working-directory: exercises/non-retryable-err-types/solution/Worker
 
-      - name: Build
+      - name: Build rollback-with-saga
         run: dotnet build
         working-directory: exercises/rollback-with-saga/solution/Worker
 
-      - name: Check format
+      - name: Check format rollback-with-saga
         if: ${{ matrix.checkTarget }}
         run: dotnet format --verify-no-changes
         working-directory: exercises/rollback-with-saga/solution/Worker
