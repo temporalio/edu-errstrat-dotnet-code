@@ -48,7 +48,7 @@ public class Activities
         if (chargeAmount < 0)
         {
             // TODO Part A: Set the nonRetryable key to true in the Application Failure
-            throw new ApplicationFailureException($"invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill });
+            throw new ApplicationFailureException($"Invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill });
         }
 
         // pretend we called a payment processing service here :-)
