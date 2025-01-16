@@ -1,8 +1,10 @@
+namespace TemporalioNonRetryableErrTypes;
+
+using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using Temporalio.Exceptions;
+using Temporalio.NonRetryableErrTypes.Workflow.Models;
 using Temporalio.Workflows;
-
-namespace TemporalioErrTypes;
 
 [Workflow]
 public class PizzaWorkflow
@@ -67,13 +69,11 @@ public class PizzaWorkflow
 
         await Workflow.DelayAsync(TimeSpan.FromSeconds(3));
 
-        var bill = new Bill
-        {
-            CustomerId = order.Customer.CustomerId,
-            OrderNumber = order.OrderNumber,
-            Amount = totalPrice,
-            Description = "Pizza",
-        };
+        var bill = new Bill(
+            CustomerId: order.Customer.CustomerId,
+            OrderNumber: order.OrderNumber,
+            Description: "Pizza",
+            Amount: totalPrice);
 
         try
         {

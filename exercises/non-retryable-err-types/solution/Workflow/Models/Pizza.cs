@@ -1,7 +1,5 @@
-namespace TemporalioErrTypes;
-public class Pizza
-{
-    required public string Description { get; set; }
+namespace Temporalio.NonRetryableErrTypes.Workflow.Models;
 
-    required public int Price { get; set; }
-}
+public record Pizza(
+    string Description,
+    int Price);

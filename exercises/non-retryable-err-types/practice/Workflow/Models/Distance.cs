@@ -1,5 +1,3 @@
-namespace TemporalioErrTypes;
-public class Distance
-{
-    required public int Kilometers { get; set; }
-}
+namespace Temporalio.NonRetryableErrTypes.Workflow.Models;
+
+public record Distance(int Kilometers = 0);

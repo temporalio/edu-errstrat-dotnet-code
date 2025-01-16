@@ -1,13 +1,8 @@
-namespace TemporalioErrTypes;
-public class Customer
-{
-    required public int CustomerId { get; set; }
+namespace Temporalio.NonRetryableErrTypes.Workflow.Models;
 
-    required public string Name { get; set; }
-
-    required public string Email { get; set; }
-
-    required public string Phone { get; set; }
-
-    public string CreditCardNumber { get; set; } = string.Empty;
-}
+public record Customer(
+    int CustomerId,
+    string Name,
+    string Phone,
+    string CreditCardNumber,
+    string Email = "");

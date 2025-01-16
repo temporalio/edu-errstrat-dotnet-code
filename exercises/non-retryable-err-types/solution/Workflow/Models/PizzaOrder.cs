@@ -1,15 +1,11 @@
 using System.Collections.ObjectModel;
+using Temporalio.NonRetryableErrTypes.Workflow.Models;
 
-namespace TemporalioErrTypes;
-public class PizzaOrder
-{
-    required public string OrderNumber { get; set; }
+namespace TemporalioNonRetryableErrTypes;
 
-    required public Customer Customer { get; set; }
-
-    required public Collection<Pizza> Items { get; init; }
-
-    required public bool IsDelivery { get; set; }
-
-    required public Address Address { get; set; }
-}
+public record PizzaOrder(
+    string OrderNumber,
+    Customer Customer,
+    Collection<Pizza> Items,
+    Address Address,
+    bool IsDelivery = false);

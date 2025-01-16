@@ -1,12 +1,7 @@
-namespace TemporalioErrTypes;
+namespace Temporalio.NonRetryableErrTypes.Workflow.Models;
 
-public class Bill
-{
-    required public int CustomerId { get; set; }
-
-    required public string OrderNumber { get; set; }
-
-    required public string Description { get; set; }
-
-    required public int Amount { get; set; }
-}
+public record Bill(
+    int CustomerId,
+    string OrderNumber,
+    string Description,
+    int Amount);

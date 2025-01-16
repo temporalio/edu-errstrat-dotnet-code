@@ -1,9 +1,10 @@
+namespace TemporalioNonRetryableErrTypes;
+
 using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 using Temporalio.Exceptions;
-
-namespace TemporalioErrTypes;
+using Temporalio.NonRetryableErrTypes.Workflow.Models;
 
 public class Activities
 {
@@ -75,10 +76,7 @@ public class Activities
             kilometers = 5;
         }
 
-        var distance = new Distance
-        {
-            Kilometers = kilometers,
-        };
+        var distance = new Distance(kilometers);
 
         logger.LogDebug("GetDistance complete. Distance: {Distance}", distance.Kilometers);
         return Task.FromResult(distance);
@@ -106,14 +104,12 @@ public class Activities
         }
 
         // pretend we called a payment processing service here :-)
-        var confirmation = new OrderConfirmation
-        {
-            OrderNumber = bill.OrderNumber,
-            ConfirmationNumber = "AB9923",
-            Status = "SUCCESS",
-            BillingTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
-            Amount = chargeAmount,
-        };
+        var confirmation = new OrderConfirmation(
+            OrderNumber: bill.OrderNumber,
+            Status: "SUCCESS",
+            ConfirmationNumber: "AB9923",
+            BillingTimestamp: DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+            Amount: chargeAmount);
 
         logger.LogDebug("SendBill complete. ConfirmationNumber: {Confirmation}", confirmation.ConfirmationNumber);
         return Task.FromResult(confirmation);

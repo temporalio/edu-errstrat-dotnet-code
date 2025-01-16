@@ -1,5 +1,3 @@
-namespace TemporalioErrTypes;
-public class DeliveryResponse
-{
-    public string Service { get; set; } = string.Empty;
-}
+namespace Temporalio.NonRetryableErrTypes.Workflow.Models;
+
+public record DeliveryResponse(string Service = "");
