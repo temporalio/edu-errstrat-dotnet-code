@@ -5,7 +5,8 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Workflow\TemporalSagaPattern.Workflow.csproj" />
+    <ProjectReference Include="..\Workflow\TemporalioRollbackWithSaga.Practice.
+    Workflow.csproj" />
 
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 using System.Collections.ObjectModel;
-using Temporalio.SagaPattern.Workflow.Models;
+using TemporalioSagaPattern.Workflow.Models;
 
 namespace TemporalioSagaPattern;
 

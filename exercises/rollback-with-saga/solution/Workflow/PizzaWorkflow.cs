@@ -2,7 +2,7 @@ namespace TemporalioSagaPattern;
 
 using Microsoft.Extensions.Logging;
 using Temporalio.Exceptions;
-using Temporalio.SagaPattern.Workflow.Models;
+using TemporalioSagaPattern.Workflow.Models;
 using Temporalio.Workflows;
 
 [Workflow]

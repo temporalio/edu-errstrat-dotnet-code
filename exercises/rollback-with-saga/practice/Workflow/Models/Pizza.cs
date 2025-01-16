@@ -1,4 +1,4 @@
-namespace Temporalio.SagaPattern.Workflow.Models;
+namespace TemporalioSagaPattern.Workflow.Models;
 
 public record Pizza(
     string Description,

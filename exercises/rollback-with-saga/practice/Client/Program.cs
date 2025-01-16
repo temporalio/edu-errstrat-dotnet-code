@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging;
 using Temporalio.Client;
-using Temporalio.SagaPattern.Workflow.Models;
+using TemporalioSagaPattern.Workflow.Models;
 using TemporalioSagaPattern;
 
 // Create a client to localhost on "default" namespace
