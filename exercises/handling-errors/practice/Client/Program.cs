@@ -41,7 +41,7 @@ PizzaOrder CreatePizzaOrder()
         Name: "María García",
         Phone: "415-555-7418",
         Email: "maria1985@example.com",
-        CreditCardNumber = "1234567890123456");
+        CreditCardNumber: "1234567890123456");
 
     var address = new Address(
         Line1: "701 Mission Street",
