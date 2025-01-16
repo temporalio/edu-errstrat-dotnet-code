@@ -8,11 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rollback-with-saga", "rollb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{612BDA9B-1AF9-4DA0-A01E-2A2C9763BA1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalSagaPattern.Client", "exercises\rollback-with-saga\solution\Client\TemporalSagaPattern.Client.csproj", "{E2237695-F165-43C4-B9FE-1ABAEF8D8CAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioRollbackWithSaga.Solution.Client", "exercises\rollback-with-saga\solution\Client\TemporalioRollbackWithSaga.Solution.Client.csproj", "{E2237695-F165-43C4-B9FE-1ABAEF8D8CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalSagaPattern.Worker", "exercises\rollback-with-saga\solution\Worker\TemporalSagaPattern.Worker.csproj", "{C0EE27DA-22EF-42B1-A15E-1108AC01948B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioRollbackWithSaga.Solution.Worker", "exercises\rollback-with-saga\solution\Worker\TemporalioRollbackWithSaga.Solution.Worker.csproj", "{C0EE27DA-22EF-42B1-A15E-1108AC01948B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalSagaPattern.Workflow", "exercises\rollback-with-saga\solution\Workflow\TemporalSagaPattern.Workflow.csproj", "{9E233218-2AA8-4ADA-BBBA-28F90A00E97B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioRollbackWithSaga.Solution.Workflow", "exercises\rollback-with-saga\solution\Workflow\TemporalioRollbackWithSaga.Solution.Workflow.csproj", "{9E233218-2AA8-4ADA-BBBA-28F90A00E97B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "handling-errors", "handling-errors", "{4E2EAD3A-3405-4E5B-A2C3-8A6A3EBE7C28}"
 EndProject
