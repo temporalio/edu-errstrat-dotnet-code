@@ -100,7 +100,7 @@ public class Activities
         // reject invalid amounts before calling the payment processor
         if (chargeAmount < 0)
         {
-            throw new ApplicationFailureException($"invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill }, nonRetryable: true);
+            throw new ApplicationFailureException($"Invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill }, nonRetryable: true);
         }
 
         // pretend we called a payment processing service here :-)
