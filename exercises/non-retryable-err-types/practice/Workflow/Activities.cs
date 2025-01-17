@@ -66,7 +66,7 @@ public class Activities
         var logger = ActivityExecutionContext.Current.Logger;
         logger.LogInformation("GetDistance invoked; determining distance to customer address");
 
-        // this is a simulation, which calculates a fake (but consistent)
+        // This is a simulation, which calculates a fake (but consistent)
         // distance for a customer address based on its length. The value
         // will therefore be different when called with different addresses,
         // but will be the same across all invocations with the same address.
