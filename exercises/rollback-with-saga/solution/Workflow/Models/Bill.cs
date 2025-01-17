@@ -1,4 +1,4 @@
-namespace TemporalioSagaPattern.Workflow.Models;
+namespace TemporalioSagaPattern.Solution.Workflow.Models;
 
 public record Bill(
     int CustomerId,
