@@ -1,9 +1,9 @@
-namespace TemporalioHandlingErrors;
+namespace TemporalioHandlingErrors.Solution.Workflow;
 
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 using Temporalio.Exceptions;
-using Temporalio.HandlingErrors.Workflow.Models;
+using TemporalioHandlingErrors.Solution.Workflow.Models;
 
 public class Activities
 {

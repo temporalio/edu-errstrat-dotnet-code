@@ -1,4 +1,4 @@
-namespace Temporalio.HandlingErrors.Workflow.Models;
+namespace TemporalioHandlingErrors.Practice.Workflow.Models ;
 
 public record Bill(
     int CustomerId,
