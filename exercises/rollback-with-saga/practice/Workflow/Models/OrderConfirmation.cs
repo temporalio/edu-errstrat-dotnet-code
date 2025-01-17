@@ -1,4 +1,4 @@
-namespace TemporalioSagaPattern.Workflow.Models;
+namespace TemporalioSagaPattern.Practice.Workflow.Models;
 
 public record OrderConfirmation(
     string OrderNumber,

@@ -1,7 +1,7 @@
-using System.Collections.ObjectModel;
-using TemporalioSagaPattern.Workflow.Models;
+namespace TemporalioSagaPattern.Practice.Workflow;
 
-namespace TemporalioSagaPattern;
+using System.Collections.ObjectModel;
+using TemporalioSagaPattern.Practice.Workflow.Models;
 
 public record PizzaOrder(
     string OrderNumber,

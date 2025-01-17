@@ -1,9 +1,9 @@
-namespace TemporalioSagaPattern;
+namespace TemporalioSagaPattern.Practice.Workflow;
 
 using Microsoft.Extensions.Logging;
 using Temporalio.Exceptions;
-using TemporalioSagaPattern.Workflow.Models;
 using Temporalio.Workflows;
+using TemporalioSagaPattern.Practice.Workflow.Models;
 
 [Workflow]
 public class PizzaWorkflow

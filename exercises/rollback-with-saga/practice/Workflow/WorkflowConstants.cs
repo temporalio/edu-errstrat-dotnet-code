@@ -1,4 +1,4 @@
-namespace TemporalioSagaPattern;
+namespace TemporalioSagaPattern.Practice.Workflow;
 
 public static class WorkflowConstants
 {

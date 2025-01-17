@@ -1,9 +1,9 @@
-namespace TemporalioSagaPattern;
+namespace TemporalioSagaPattern.Practice.Workflow;
 
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 using Temporalio.Exceptions;
-using TemporalioSagaPattern.Workflow.Models;
+using TemporalioSagaPattern.Practice.Workflow.Models;
 
 public class Activities
 {
