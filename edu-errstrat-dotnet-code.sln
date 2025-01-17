@@ -18,23 +18,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "handling-errors", "handling
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{D9ED6A68-BE01-4476-9B10-C8B151BE05BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalHandlingErrors.Client", "exercises\handling-errors\solution\Client\TemporalHandlingErrors.Client.csproj", "{049CD620-AAF9-4C7F-BA59-81CB689AA56B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioHandlingErrors.Solution.Client", "exercises\handling-errors\solution\Client\TemporalHandlingErrors.Client.csproj", "{049CD620-AAF9-4C7F-BA59-81CB689AA56B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalHandlingErrors.Worker", "exercises\handling-errors\solution\Worker\TemporalHandlingErrors.Worker.csproj", "{299E144F-1C90-4299-B661-991BC8E0FEE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioHandlingErrors.Solution.Worker", "exercises\handling-errors\solution\Worker\TemporalHandlingErrors.Worker.csproj", "{299E144F-1C90-4299-B661-991BC8E0FEE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "non-retryable-err-types", "non-retryable-err-types", "{6BBAFB03-6850-4D22-B10D-32E9F9A291C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{756C1908-696E-4F03-A0FD-9328D7C90B24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalNonRetryableErrTypes.Client", "exercises\non-retryable-err-types\solution\Client\TemporalNonRetryableErrTypes.Client.csproj", "{C44AACCE-667C-476A-AEC8-BC8B11FE451C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioNonRetryableErrTypes.Solution.Client", "exercises\non-retryable-err-types\solution\Client\TemporalNonRetryableErrTypes.Client.csproj", "{C44AACCE-667C-476A-AEC8-BC8B11FE451C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalNonRetryableErrTypes.Web", "exercises\non-retryable-err-types\solution\Web\TemporalNonRetryableErrTypes.Web.csproj", "{35A29C73-E5AD-42B4-A33B-EFE6BEC84DB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioNonRetryableErrTypes.Solution.Web", "exercises\non-retryable-err-types\solution\Web\TemporalNonRetryableErrTypes.Web.csproj", "{35A29C73-E5AD-42B4-A33B-EFE6BEC84DB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalNonRetryableErrTypes.Worker", "exercises\non-retryable-err-types\solution\Worker\TemporalNonRetryableErrTypes.Worker.csproj", "{80B2D72A-5469-42E0-8D61-AC52DEC5F8A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioNonRetryableErrTypes.Solution.Worker", "exercises\non-retryable-err-types\solution\Worker\TemporalNonRetryableErrTypes.Worker.csproj", "{80B2D72A-5469-42E0-8D61-AC52DEC5F8A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalNonRetryableErrTypes.Workflow", "exercises\non-retryable-err-types\solution\Workflow\TemporalNonRetryableErrTypes.Workflow.csproj", "{D6FA0E73-2E01-47F8-A990-89C1F0641AC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioNonRetryableErrTypes.Solution.Workflow", "exercises\non-retryable-err-types\solution\Workflow\TemporalNonRetryableErrTypes.Workflow.csproj", "{D6FA0E73-2E01-47F8-A990-89C1F0641AC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalHandlingErrors.Workflow", "exercises\handling-errors\solution\Workflow\TemporalHandlingErrors.Workflow.csproj", "{F7293B2F-CCFF-467B-B530-D639909D22B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalioHandlingErrors.Solution.Workflow", "exercises\handling-errors\solution\Workflow\TemporalHandlingErrors.Workflow.csproj", "{F7293B2F-CCFF-467B-B530-D639909D22B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
