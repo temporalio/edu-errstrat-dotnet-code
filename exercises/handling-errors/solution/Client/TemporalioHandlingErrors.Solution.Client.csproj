@@ -4,6 +4,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Workflow\TemporalHandlingErrors.Workflow.csproj" />
+    <ProjectReference Include="..\Workflow\TemporalioHandlingErrors.Solution.Workflow.csproj" />
   </ItemGroup>
 </Project>

@@ -1,9 +1,9 @@
-namespace TemporalioHandlingErrors;
+namespace TemporalioHandlingErrors.Practice.Workflow;
 
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 // TODO Part A: Add `Temporalio.Exceptions` to your imports
-using Temporalio.HandlingErrors.Workflow.Models;
+using TemporalioHandlingErrors.Practice.Workflow.Models;
 
 public class Activities
 {
@@ -13,7 +13,7 @@ public class Activities
         var logger = ActivityExecutionContext.Current.Logger;
         logger.LogInformation("GetDistance invoked; determining distance to customer address");
 
-        // this is a simulation, which calculates a fake (but consistent)
+        // This is a simulation, which calculates a fake (but consistent)
         // distance for a customer address based on its length. The value
         // will therefore be different when called with different addresses,
         // but will be the same across all invocations with the same address.
@@ -44,14 +44,14 @@ public class Activities
             chargeAmount -= 500;
         }
 
-        // reject invalid amounts before calling the payment processor
+        // Reject invalid amounts before calling the payment processor
         if (chargeAmount < 0)
         {
             // TODO Part A: Set the nonRetryable key to true in the Application Failure
-            throw new ApplicationFailureException($"invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill });
+            throw new ApplicationFailureException($"Invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill });
         }
 
-        // pretend we called a payment processing service here :-)
+        // Pretend we called a payment processing service here :-)
         var confirmation = new OrderConfirmation(
             OrderNumber: bill.OrderNumber,
             Status: "SUCCESS",

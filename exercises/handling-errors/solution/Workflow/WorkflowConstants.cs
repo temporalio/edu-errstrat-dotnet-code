@@ -1,4 +1,4 @@
-namespace TemporalioHandlingErrors;
+namespace TemporalioHandlingErrors.Solution.Workflow;
 
 public static class WorkflowConstants
 {
