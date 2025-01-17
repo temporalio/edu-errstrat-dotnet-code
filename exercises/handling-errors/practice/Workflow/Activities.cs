@@ -44,22 +44,14 @@ public class Activities
             chargeAmount -= 500;
         }
 
-<<<<<<< HEAD
-        // reject invalid amounts before calling the payment processor
-=======
         // Reject invalid amounts before calling the payment processor
->>>>>>> origin/main
         if (chargeAmount < 0)
         {
             // TODO Part A: Set the nonRetryable key to true in the Application Failure
             throw new ApplicationFailureException($"Invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill });
         }
 
-<<<<<<< HEAD
-        // pretend we called a payment processing service here :-)
-=======
         // Pretend we called a payment processing service here :-)
->>>>>>> origin/main
         var confirmation = new OrderConfirmation(
             OrderNumber: bill.OrderNumber,
             Status: "SUCCESS",
