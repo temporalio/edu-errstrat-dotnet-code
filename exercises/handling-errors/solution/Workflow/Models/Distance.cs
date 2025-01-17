@@ -1,3 +1,3 @@
-namespace Temporalio.HandlingErrors.Workflow.Models;
+namespace TemporalioHandlingErrors.Solution.Workflow.Models;
 
 public record Distance(int Kilometers = 0);

@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
-using Temporalio.HandlingErrors.Workflow.Models;
+using TemporalioHandlingErrors.Solution.Workflow.Models;
 
-namespace TemporalioHandlingErrors;
+namespace TemporalioHandlingErrors.Solution.Workflow;
 
 public record PizzaOrder(
     string OrderNumber,

@@ -1,9 +1,9 @@
-namespace TemporalioHandlingErrors;
+namespace TemporalioHandlingErrors.Solution.Workflow;
 
 using Microsoft.Extensions.Logging;
 using Temporalio.Exceptions;
-using Temporalio.HandlingErrors.Workflow.Models;
 using Temporalio.Workflows;
+using TemporalioHandlingErrors.Solution.Workflow.Models;
 
 [Workflow]
 public class PizzaWorkflow

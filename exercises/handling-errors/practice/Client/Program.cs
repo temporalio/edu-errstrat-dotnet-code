@@ -2,8 +2,8 @@
 using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging;
 using Temporalio.Client;
-using Temporalio.HandlingErrors.Workflow.Models;
-using TemporalioHandlingErrors;
+using TemporalioHandlingErrors.Practice.Workflow;
+using TemporalioHandlingErrors.Practice.Workflow.Models;
 
 // Create a client to localhost on "default" namespace
 var client = await TemporalClient.ConnectAsync(new("localhost:7233")
