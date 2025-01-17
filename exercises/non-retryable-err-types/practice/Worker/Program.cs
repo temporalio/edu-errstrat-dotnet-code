@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Temporalio.Client;
 using Temporalio.Worker;
-using TemporalioNonRetryableErrTypes;
+using TemporalioNonRetryableErrTypes.Practice.Workflow;
 
 // Create a client to localhost on "default" namespace
 var client = await TemporalClient.ConnectAsync(new("localhost:7233")

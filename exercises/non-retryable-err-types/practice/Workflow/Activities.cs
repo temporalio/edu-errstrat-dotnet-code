@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 using Temporalio.Exceptions;
-using Temporalio.NonRetryableErrTypes.Workflow.Models;
+using TemporalioNonRetryableErrTypes.Practice.Workflow.Models;
 
 public class Activities
 {
@@ -97,13 +97,13 @@ public class Activities
             chargeAmount -= 500;
         }
 
-        // reject invalid amounts before calling the payment processor
+        // Reject invalid amounts before calling the payment processor
         if (chargeAmount < 0)
         {
             throw new ApplicationFailureException($"Invalid charge amount: {chargeAmount} (must be above zero)", details: new[] { bill }, nonRetryable: true);
         }
 
-        // pretend we called a payment processing service here :-)
+        // Pretend we called a payment processing service here :-)
         var confirmation = new OrderConfirmation(
             OrderNumber: bill.OrderNumber,
             Status: "SUCCESS",

@@ -1,4 +1,4 @@
-namespace TemporalioNonRetryableErrTypes;
+namespace TemporalioNonRetryableErrTypes.Solution.Workflow;
 
 public static class WorkflowConstants
 {

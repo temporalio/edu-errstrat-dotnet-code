@@ -1,10 +1,10 @@
-namespace TemporalioNonRetryableErrTypes;
+namespace TemporalioNonRetryableErrTypes.Practice.Workflow;
 
 using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using Temporalio.Exceptions;
-using Temporalio.NonRetryableErrTypes.Workflow.Models;
 using Temporalio.Workflows;
+using TemporalioNonRetryableErrTypes.Practice.Workflow.Models;
 
 [Workflow]
 public class PizzaWorkflow

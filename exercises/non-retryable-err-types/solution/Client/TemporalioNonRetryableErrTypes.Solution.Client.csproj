@@ -4,7 +4,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Workflow\TemporalNonRetryableErrTypes.Workflow.csproj" />
+    <ProjectReference Include="..\Workflow\TemporalioNonRetryableErrTypes.Solution.Workflow.csproj" />
   </ItemGroup>
 
 </Project>

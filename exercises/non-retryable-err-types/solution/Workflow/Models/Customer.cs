@@ -1,4 +1,4 @@
-namespace Temporalio.NonRetryableErrTypes.Workflow.Models;
+namespace TemporalioNonRetryableErrTypes.Solution.Workflow.Models;
 
 public record Customer(
     int CustomerId,

@@ -1,3 +1,3 @@
-namespace Temporalio.NonRetryableErrTypes.Workflow.Models;
+namespace TemporalioNonRetryableErrTypes.Practice.Workflow.Models;
 
 public record DeliveryResponse(string Service = "");

@@ -1,7 +1,7 @@
-using System.Collections.ObjectModel;
-using Temporalio.NonRetryableErrTypes.Workflow.Models;
+namespace namespace TemporalioNonRetryableErrTypes.Practice.Workflow;
 
-namespace TemporalioNonRetryableErrTypes;
+using System.Collections.ObjectModel;
+using TemporalioNonRetryableErrTypes.Practice.Workflow.Models;
 
 public record PizzaOrder(
     string OrderNumber,

@@ -1,10 +1,10 @@
-namespace TemporalioNonRetryableErrTypes;
+namespace TemporalioNonRetryableErrTypes.Solution.Workflow;
 
 using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 using Temporalio.Exceptions;
-using Temporalio.NonRetryableErrTypes.Workflow.Models;
+using TemporalioNonRetryableErrTypes.Solution.Workflow.Models;
 
 public class Activities
 {
