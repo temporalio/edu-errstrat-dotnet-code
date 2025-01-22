@@ -30,7 +30,7 @@ public class Activities
     }
 
     [Activity]
-    public Task ValidateCreditCardAsync(string creditCardNumber)
+    public string ValidateCreditCard(string creditCardNumber)
     {
         var logger = ActivityExecutionContext.Current.Logger;
         logger.LogInformation("ValidateCreditCard invoked {Amount}", creditCardNumber);
@@ -40,29 +40,29 @@ public class Activities
             throw new ApplicationFailureException("Invalid credit card number: must contain exactly 16 digits", nonRetryable: true);
         }
 
-        return Task.CompletedTask;
+        return "Credit card validated";
     }
 
     [Activity]
-    public Task UpdateInventoryAsync(ICollection<Pizza> items)
+    public string UpdateInventory(ICollection<Pizza> items)
     {
         var logger = ActivityExecutionContext.Current.Logger;
         // Here you would call your inventory management system to reduce the stock of your pizza inventory
         logger.LogInformation("Updating inventory for {Count} items", items.Count);
-        return Task.FromResult("Updated inventory");
+        return "Updated inventory";
     }
 
     [Activity]
-    public Task RevertInventoryAsync(ICollection<Pizza> items)
+    public string RevertInventory(ICollection<Pizza> items)
     {
         var logger = ActivityExecutionContext.Current.Logger;
         // Here you would call your inventory management system to add the ingredients back into the pizza inventory.
         logger.LogInformation("Reverting inventory for {Count} items", items.Count);
-        return Task.FromResult("Reverted inventory");
+        return "Reverted inventory";
     }
 
     [Activity]
-    public Task RefundCustomerAsync(Bill bill)
+    public string RefundCustomer(Bill bill)
     {
         var logger = ActivityExecutionContext.Current.Logger;
         // Simulate refunding the customer
@@ -71,7 +71,7 @@ public class Activities
             bill.Amount,
             bill.CustomerId,
             bill.OrderNumber);
-        return Task.FromResult("Refunded {Amount} to customer {CustomerId} for order {OrderNumber}");
+        return "Refunded {Amount} to customer {CustomerId} for order {OrderNumber}";
     }
 
     [Activity]

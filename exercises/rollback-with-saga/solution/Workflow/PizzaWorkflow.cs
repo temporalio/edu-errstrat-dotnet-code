@@ -46,22 +46,22 @@ public class PizzaWorkflow
 
             // Register compensation for inventory update before executing the Activity
             compensations.Add(() => Workflow.ExecuteActivityAsync(
-                (Activities act) => act.RevertInventoryAsync(order.Items),
+                (Activities act) => act.RevertInventory(order.Items),
                 options));
             await Workflow.ExecuteActivityAsync(
-                (Activities act) => act.UpdateInventoryAsync(order.Items),
+                (Activities act) => act.UpdateInventory(order.Items),
                 options);
 
             // Register compensation for billing before executing the Activity
             compensations.Add(() => Workflow.ExecuteActivityAsync(
-                (Activities act) => act.RefundCustomerAsync(bill),
+                (Activities act) => act.RefundCustomer(bill),
                 options));
             var confirmation = await Workflow.ExecuteActivityAsync(
                 (Activities act) => act.SendBillAsync(bill),
                 options);
 
             await Workflow.ExecuteActivityAsync(
-                (Activities act) => act.ValidateCreditCardAsync(order.Customer.CreditCardNumber),
+                (Activities act) => act.ValidateCreditCard(order.Customer.CreditCardNumber),
                 options);
 
             return confirmation;
