@@ -44,18 +44,19 @@ public class PizzaWorkflow
                 Description: "Pizza",
                 Amount: totalPrice);
 
-            await Workflow.ExecuteActivityAsync(
-                (Activities act) => act.UpdateInventoryAsync(order.Items),
-                options);
+            // Register compensation for inventory update before executing the Activity
             compensations.Add(async () => await Workflow.ExecuteActivityAsync(
                 (Activities act) => act.RevertInventoryAsync(order.Items),
                 options));
+            await Workflow.ExecuteActivityAsync(
+                (Activities act) => act.UpdateInventoryAsync(order.Items),
+                options);
 
+            // TODO PART B: Add a compensating action for the `SendBill` Activity.
+            // Pass the bill as the input.
             var confirmation = await Workflow.ExecuteActivityAsync(
                 (Activities act) => act.SendBillAsync(bill),
                 options);
-            // TODO PART B: Add a compensating action for the `SendBill` Activity.
-            // Pass the bill as the input.
             await Workflow.ExecuteActivityAsync(
                 (Activities act) => act.ValidateCreditCardAsync(order.Customer.CreditCardNumber),
                 options);

@@ -24,6 +24,14 @@ Three new Activities have been created to demonstrate rollback actions.
 
 Now you will implement a compensating action using Activities in your Temporal Workflow. 
 
+Also, note that we register compensating actions before executing their corresponding Activities. Consider this example of why we use this pattern.
+
+- An Activity (like `UpdateInventory`) executes successfully and updates the inventory system.
+- However, right after the update succeeds, a network failure occurs.
+- The Activity fails to report its success back to the Workflow
+From the Workflow's perspective, the Activity failed.
+- If we had registered the compensation after the activity, the compensation would never be registered
+
 1. Open `PizzaWorkflow.cs` from your `Workflow` directory.
 2. Note that a List, `compensations`, has been added at the top to keep track of each Activity's compensating action.
 3. Note that after the bill is created in the `PizzaWorkflow` file, the `UpdateInventory` Activity is executed, before the `SendBill` Activity is called. The compensating action was added to the compensations list in the list above. Study this and use it for the next step.
