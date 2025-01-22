@@ -1,12 +1,12 @@
-// Call this via HTTP GET with a URL like:
-// http://localhost:9998/getExternalDeliveryDriver
+// Call this via HTTP POST with a URL like:
+// http://localhost:9998/findExternalDeliveryDriver
 using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 var logger = app.Services.GetRequiredService<ILogger<Program>>();
 
-app.MapGet("/getExternalDeliveryDriver", async (HttpContext context) =>
+app.MapPost("/findExternalDeliveryDriver", async (HttpContext context) =>
 {
     logger.LogInformation("Checking UberEats...");
     await Task.Delay(500);

@@ -8,6 +8,8 @@ using TemporalioNonRetryableErrTypes.Solution.Workflow.Models;
 
 public class Activities
 {
+    private static readonly HttpClient HttpClient = new();
+
     [Activity]
     public static async Task PollDeliveryDriverAsync(PizzaOrder order)
     {
@@ -21,22 +23,21 @@ public class Activities
 
             ctx.Logger.LogInformation("Starting delivery driver polling at progress: {StartingPoint}", startingPoint);
 
-            using var client = new HttpClient();
-
             for (var progress = startingPoint; progress <= 10; ++progress)
             {
                 await Task.Delay(TimeSpan.FromSeconds(20), ctx.CancellationToken);
 
                 ctx.Logger.LogInformation("Polling external delivery driver... Progress: {Progress}", progress);
-                var response = await client.GetAsync("http://localhost:9998/getExternalDeliveryDriver", ctx.CancellationToken);
+                using var jsonContent = new StringContent("{}", System.Text.Encoding.UTF8, "application/json");
+                var response = await HttpClient.PostAsync("http://localhost:9998/findExternalDeliveryDriver", jsonContent, ctx.CancellationToken);
 
                 if ((int)response.StatusCode >= 500 || (int)response.StatusCode == 403)
                 {
                     throw new ApplicationFailureException($"Error. Status Code: {response.StatusCode}", nonRetryable: true);
                 }
 
-                var content = await response.Content.ReadFromJsonAsync<DeliveryResponse>(cancellationToken: ctx.CancellationToken);
-                ctx.Logger.LogInformation("External delivery driver assigned from: {Service}", content?.Service);
+                var deliveryResponse = await response.Content.ReadFromJsonAsync<DeliveryResponse>(cancellationToken: ctx.CancellationToken);
+                ctx.Logger.LogInformation("External delivery driver assigned from: {Service}", deliveryResponse?.Service);
                 ctx.Heartbeat(progress);
                 if (response.IsSuccessStatusCode)
                 {

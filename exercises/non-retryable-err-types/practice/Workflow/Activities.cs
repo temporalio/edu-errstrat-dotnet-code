@@ -1,13 +1,15 @@
-namespace TemporalioNonRetryableErrTypes;
+namespace TemporalioNonRetryableErrTypes.Solution.Workflow;
 
 using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using Temporalio.Activities;
 using Temporalio.Exceptions;
-using TemporalioNonRetryableErrTypes.Practice.Workflow.Models;
+using TemporalioNonRetryableErrTypes.Solution.Workflow.Models;
 
 public class Activities
 {
+    private static readonly HttpClient HttpClient = new();
+
     [Activity]
     public static async Task PollDeliveryDriverAsync(PizzaOrder order)
     {
@@ -21,14 +23,13 @@ public class Activities
 
             ctx.Logger.LogInformation("Starting delivery driver polling at progress: {StartingPoint}", startingPoint);
 
-            using var client = new HttpClient();
-
             for (var progress = startingPoint; progress <= 10; ++progress)
             {
                 await Task.Delay(TimeSpan.FromSeconds(20), ctx.CancellationToken);
 
                 ctx.Logger.LogInformation("Polling external delivery driver... Progress: {Progress}", progress);
-                var response = await client.GetAsync("http://localhost:9998/getExternalDeliveryDriver", ctx.CancellationToken);
+                using var jsonContent = new StringContent("{}", System.Text.Encoding.UTF8, "application/json");
+                var response = await HttpClient.PostAsync("http://localhost:9998/findExternalDeliveryDriver", jsonContent, ctx.CancellationToken);
 
                 if ((int)response.StatusCode >= 500 || (int)response.StatusCode == 403)
                 {
@@ -37,8 +38,8 @@ public class Activities
                     // Set the `nonRetryable` key to true.
                 }
 
-                var content = await response.Content.ReadFromJsonAsync<DeliveryResponse>(cancellationToken: ctx.CancellationToken);
-                ctx.Logger.LogInformation("External delivery driver assigned from: {Service}", content?.Service);
+                var deliveryResponse = await response.Content.ReadFromJsonAsync<DeliveryResponse>(cancellationToken: ctx.CancellationToken);
+                ctx.Logger.LogInformation("External delivery driver assigned from: {Service}", deliveryResponse?.Service);
                 // TODO Part C: Call `ctx.Heartbeat()` taking in `progress`.
                 if (response.IsSuccessStatusCode)
                 {

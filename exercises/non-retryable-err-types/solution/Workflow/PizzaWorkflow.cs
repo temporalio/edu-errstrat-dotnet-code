@@ -1,6 +1,5 @@
 namespace TemporalioNonRetryableErrTypes.Solution.Workflow;
 
-using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using Temporalio.Exceptions;
 using Temporalio.Workflows;
