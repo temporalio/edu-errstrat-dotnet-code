@@ -71,8 +71,8 @@ public class Activities
 
         if (creditCardNumber.Length != 16)
         {
-            // TODO Part A: Throw an `ApplicationFailureException`. 
-            // In the details field, add your credit card number. 
+            // TODO Part A: Throw an `ApplicationFailureException`.
+            // In the details field, add your credit card number.
             // Set the nonRetryable key to true.
         }
 

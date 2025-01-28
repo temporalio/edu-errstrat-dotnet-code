@@ -1,4 +1,4 @@
-namespace namespace TemporalioNonRetryableErrTypes.Practice.Workflow;
+namespace TemporalioNonRetryableErrTypes.Practice.Workflow;
 
 using System.Collections.ObjectModel;
 using TemporalioNonRetryableErrTypes.Practice.Workflow.Models;

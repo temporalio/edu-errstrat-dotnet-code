@@ -26,10 +26,10 @@ public class PizzaWorkflow
         }
         catch (ActivityFailureException err)
         {
-            // TODO Part B: Add a logging statement stating that the Activity has failed. 
-            // TODO Part B: Throw another `ApplicationFailureException`, 
-            // passing 'Invalid credit card number error' in the message field 
-            // and the credit card number in the details field. 
+            // TODO Part B: Add a logging statement stating that the Activity has failed.
+            // TODO Part B: Throw another `ApplicationFailureException`,
+            // passing 'Invalid credit card number error' in the message field
+            // and the credit card number in the details field.
         }
 
         if (order.IsDelivery)

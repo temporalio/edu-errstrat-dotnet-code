@@ -73,7 +73,7 @@ In the previous part of the exercise, you added a Heartbeat to an Activity. Howe
 
 Next, let's run the Workflow. Let's go back to change your credit card to a valid one.
 
-1. In `Program.cs` within your `Client` directory, and modify the `CreditCardNumber` value in the `CreatePizzaOrder` function to be `1234567890123456`.  your file.
+1. In `Program.cs` within your `Client` directory, and modify the `CreditCardNumber` value in the `CreatePizzaOrder` function to be `1234567890123456`.  Save your file.
 2. In one terminal, start the service that will poll for external delivery drivers by running `dotnet run --project Web`.
 3. In another terminal, run the Worker by running `dotnet run --project Worker`.
 4. In another terminal, start the Workflow by running `dotnet run --project Client`.
