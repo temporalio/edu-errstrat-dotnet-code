@@ -1,6 +1,7 @@
 // This file is designated to run the Workflow
 using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging;
+using Temporalio.Api.Enums.V1;
 using Temporalio.Client;
 using TemporalioNonRetryableErrTypes.Practice.Workflow;
 using TemporalioNonRetryableErrTypes.Practice.Workflow.Models;
@@ -23,6 +24,7 @@ var result = await client.ExecuteWorkflowAsync(
     {
         Id = $"pizza-workflow-order-{order.OrderNumber}",
         TaskQueue = WorkflowConstants.TaskQueueName,
+        IdReusePolicy = WorkflowIdReusePolicy.AllowDuplicate,
     });
 
 Console.WriteLine($"""
