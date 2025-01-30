@@ -90,7 +90,7 @@ public class Activities
 
         if (chargeAmount < 0)
         {
-            throw new ArgumentException($"Invalid charge amount: {chargeAmount} (must be above zero)");
+            throw new ApplicationFailureException($"Invalid charge amount: {chargeAmount} (must be above zero)");
         }
 
         var confirmation = new OrderConfirmation(
