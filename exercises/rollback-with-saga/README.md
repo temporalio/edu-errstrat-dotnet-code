@@ -34,7 +34,7 @@ From the Workflow's perspective, the Activity failed.
 
 1. Open `PizzaWorkflow.cs` from your `Workflow` directory.
 2. Note that a List, `compensations`, has been added at the top to keep track of each Activity's compensating action.
-3. Note that after the bill is created in the `PizzaWorkflow` file, the `UpdateInventory` Activity is executed, before the `SendBill` Activity is called. The compensating action was added to the compensations list in the list above. Study this and use it for the next step.
+3. Note that after the bill is created in the `PizzaWorkflow` file, the `RevertInventory` (compensating action) was added to the compensations list in the list before the `UpdateInventory` is invoked. Study this and use it for the next step.
 4. Locate the invocation for the `SendBill` Activity. Add the appropriate compensating Activity to the compensations list, containing the compensating input. Use the previous step as a reference.
 
 ## Part C: Create Your `Compensate` Function
